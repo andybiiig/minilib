@@ -1,6 +1,7 @@
 import json
 from typing import TextIO
 
+from src.lang.messages import ERR_LIBRARY_FILE_INVALID, ERR_ONLY_BOOKS_ALLOWED
 from src.models.book import Book
 
 LIBRARY_VERSION = '0.1'
@@ -20,9 +21,9 @@ class Library(object):
     def get_changed(self) -> bool:
         return self.changed
 
-    def add_book(self, book):
+    def add_book(self, book: Book) -> None:
         if not isinstance(book, Book):
-            raise TypeError("В библиотеку могут быть добавлены только книги")
+            raise TypeError(ERR_ONLY_BOOKS_ALLOWED)
 
         self.books[self.next_id] = book
         self.next_id += 1
@@ -67,13 +68,13 @@ class Library(object):
         self.next_id = 1
         library_data = json.load(file)
         if 'lib_version' not in library_data:
-            raise TypeError(f"Файл не соответствует требованиям библиотеки")
+            raise TypeError(ERR_LIBRARY_FILE_INVALID)
 
         if library_data['lib_version'] != self.version:
             raise CompatibilityError(f"Версия библиотеки {library_data['lib_version']} не поддерживается")
 
         if 'books' not in library_data:
-            raise TypeError(f"Файл не соответствует требованиям библиотеки")
+            raise TypeError(ERR_LIBRARY_FILE_INVALID)
 
         for key, value in library_data['books'].items():
             key = int(key)

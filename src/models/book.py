@@ -1,3 +1,5 @@
+from src.lang.messages import ERR_STATUS_MUST_BE_A_NUMBER, ERR_STATUS_OUT_OF_RANGE
+
 book_statuses = [
     "",
     "в наличии",
@@ -38,11 +40,15 @@ class Book(object):
         return self.status
 
     def set_status(self, status: int) -> None:
-        """Устанавливает статус книги (число в пределах элементов списка `book_statuses`)"""
+        """Устанавливает статус книги (число в пределах элементов списка `book_statuses`)
+        :param status: статус книги (число в пределах элементов списка `book_statuses`)
+        :raises TypeError: если статус книги не число
+        :raises ValueError: если статус книги не в пределах элементов списка `book_statuses`
+        """
         if not isinstance(status, int):
-            raise TypeError("Статус книги должен быть числом")
+            raise TypeError(ERR_STATUS_MUST_BE_A_NUMBER)
         if status not in range(len(book_statuses)):
-            raise ValueError("Неверный статус книги")
+            raise ValueError(ERR_STATUS_OUT_OF_RANGE)
         self.status = status
 
     def to_dict(self) -> dict:
