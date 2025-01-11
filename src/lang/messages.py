@@ -1,0 +1,27 @@
+S_INFO_TYPE_INFORMATION = "ИНФОРМАЦИЯ"
+S_INFO_TYPE_ERROR = "ОШИБКА"
+S_INFO_TYPE_FATAL = "ФАТАЛЬНАЯ ОШИБКА"
+
+BOOK_TITLE = "Название"
+BOOK_AUTHOR = "Автор"
+BOOK_YEAR = "Год издания"
+BOOK_STATUS = "Статус"
+BOOK_ID = " id "
+
+MSG_BOOKS_NOT_FOUND = "Книг не найдено"
+MSG_SEARCH_CANCELLED = "Поиск отменен"
+MSG_STATUS_CHANGED = "Статус книги изменен"
+MSG_STATUS_CHANGE_CANCELLED = "Изменение статуса книги отменено"
+MSG_BOOK_ADDED = "Книга добавлена"
+MSG_BOOK_DELETED = "Книга удалена"
+MSG_BOOK_ADD_CANCELLED = "Добавление книги отменено"
+MSG_BOOK_DELETE_CANCELLED = "Удаление книги отменено"
+MSG_BOOK_NOT_FOUND_FMT = "Книг {} не найдено"
+
+MSG_INCORRECT_INPUT = "Неверный ввод"
+
+ERR_NOT_A_LIBRARY = "Не передана библиотека"
+ERR_LIBRARY_FILE_INVALID = "Файл не соответствует требованиям библиотеки"
+ERR_ONLY_BOOKS_ALLOWED = "В библиотеку могут быть добавлены только книги"
+ERR_STATUS_MUST_BE_A_NUMBER = "Статус книги должен быть числом"
+ERR_STATUS_OUT_OF_RANGE = "Неверный статус книги"

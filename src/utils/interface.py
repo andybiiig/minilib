@@ -1,3 +1,5 @@
+from src.lang.messages import MSG_INCORRECT_INPUT
+
 # Вынесено в отдельную функцию, потому что DRY,
 # но на полноценный def не тянет. Сделано для демонстрации, что так тоже можно.
 # Не соответствует PEP8
@@ -29,10 +31,9 @@ def show_menu(title: str, choices: dict[int, str], prompt: str = "Выберит
             if user_input in choices:
                 return user_input
             else:
-                print("Неверный ввод")
+                print(MSG_INCORRECT_INPUT)
         except ValueError:
-            print("Неверный ввод")
-    # print("Отмена")
+            print(MSG_INCORRECT_INPUT)
     return None
 
 
@@ -83,7 +84,7 @@ def input_string(prompt: str, empty_allowed: bool = False) -> str | None:
         if len(user_input) > 0:
             return user_input
         else:
-            print("Неверный ввод")
+            print(MSG_INCORRECT_INPUT)
     # print("Отмена")
     return None
 
@@ -112,7 +113,7 @@ def input_int(prompt: str, min_value: int = None, max_value: int = None, empty_a
             else:
                 return user_input
         except ValueError:
-            print("Неверный ввод")
+            print(MSG_INCORRECT_INPUT)
     # print("Отмена")
     return None
 
